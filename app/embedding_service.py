@@ -1,13 +1,13 @@
 import os
 from openai import AzureOpenAI
 
+
 class EmbeddingService:
     """
     Handles the generation of text embeddings using Azure OpenAI.
     """
 
     def __init__(self):
-        # Load configuration from environment variables
         self.api_key = os.getenv("AZURE_OPENAI_API_KEY")
         self.api_version = os.getenv("AZURE_OPENAI_API_VERSION", "2023-05-15")
         self.endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
@@ -25,11 +25,7 @@ class EmbeddingService:
             azure_endpoint=self.endpoint,
         )
 
-    def generate_embeddings(self, text: str):
-        """
-        Generate embeddings for a given text string using Azure OpenAI.
-        Returns the embedding vector (list of floats).
-        """
+    def generate_embeddings(self, text: str) -> list[float]:
         try:
             response = self.client.embeddings.create(
                 input=text,
@@ -45,6 +41,5 @@ class EmbeddingService:
             return embedding
 
         except Exception as e:
-            # Optionally, you can add logging here
             print(f"[EmbeddingService] Error generating embeddings: {e}")
             raise
