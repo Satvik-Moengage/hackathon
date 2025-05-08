@@ -1,0 +1,6 @@
+# kb_chatbot_project/requirements.txt
+fastapi
+uvicorn[standard]
+qdrant-client
+google-generativeai
+python-dotenv
