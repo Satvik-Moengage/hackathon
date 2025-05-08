@@ -1,0 +1,11 @@
+app/__pycache__/
+app/*.pyc
+app/*.pyo
+app/*.pyd
+app/*.pdb
+app/*.egg-info/
+app/.pytest_cache/
+app/.mypy_cache/
+app/.coverage
+app/.hypothesis/
+app/.tox/          
